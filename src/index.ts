@@ -20,8 +20,8 @@ function init() {
   const material = new THREE.MeshBasicMaterial( { wireframe: true } )
 
   mesh1 = new THREE.Mesh(geometry, material)
-  mesh2 = new THREE.Mesh(new THREE.BoxGeometry( 20, 20, 20 ),material)
-  mesh3 = new THREE.Mesh(new THREE.BoxGeometry( 100, 100, 100 ),material)
+  mesh2 = new THREE.Mesh(new THREE.BoxGeometry( 100, 100, 100 ),material)
+  mesh3 = new THREE.Mesh(new THREE.BoxGeometry( 20, 20, 20 ),material)
 
   const meshes = [mesh1,mesh2,mesh3]
 
@@ -78,13 +78,12 @@ function animate() {
   requestAnimationFrame( animate )
 
   mesh1.rotation.x += 0.005
-  // TransformComponent.rotation.x[0] += 0.005
-  // TransformComponent.rotation.y[0] += 0.01
+  TransformComponent.rotation.y[0] += 0.01
 
 
-  TransformComponent.rotation.z[1] -= 0.1
+  TransformComponent.rotation.x[1] -= 0.01
 
-  TransformComponent.rotation.y[2] -= 0.01
+  TransformComponent.rotation.y[2] -= 0.1
 
 
   mesh1.rotation._onChangeCallback()
