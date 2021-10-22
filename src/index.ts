@@ -26,7 +26,7 @@ function init() {
   const meshes = [mesh1,mesh2,mesh3]
 
   mesh1.add(mesh2)
-  mesh1.add(mesh3)
+  mesh2.add(mesh3)
 
   const world = createWorld()
 
@@ -80,11 +80,9 @@ function animate() {
   mesh1.rotation.x += 0.005
   TransformComponent.rotation.y[0] += 0.01
 
-
   TransformComponent.rotation.x[1] -= 0.01
 
   TransformComponent.rotation.y[2] -= 0.1
-
 
   mesh1.rotation._onChangeCallback()
   mesh2.rotation._onChangeCallback()
