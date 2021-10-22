@@ -78,15 +78,22 @@ function animate() {
   requestAnimationFrame( animate )
 
   mesh1.rotation.x += 0.005
-  TransformComponent.rotation.y[0] += 0.01
+  // TransformComponent.rotation.x[0] += 0.005
+  // TransformComponent.rotation.y[0] += 0.01
 
-  mesh2.rotation.z += -0.1
 
-  mesh3.rotation.y += -0.1
+  TransformComponent.rotation.z[1] -= 0.1
+
+  TransformComponent.rotation.y[2] -= 0.01
+
 
   mesh1.rotation._onChangeCallback()
+  mesh2.rotation._onChangeCallback()
+  mesh3.rotation._onChangeCallback()
 
   renderer.render( scene, camera )
+
+
 
 }
 
