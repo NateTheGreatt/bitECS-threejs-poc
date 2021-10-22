@@ -20,13 +20,10 @@ function init() {
   const geometry = new THREE.BoxGeometry( 200, 200, 200 )
   const material = new THREE.MeshBasicMaterial( { wireframe: true } )
 
-  mesh = new THREE.Mesh( geometry, material )
+  mesh = new THREE.Mesh(geometry, material)
 
-  renderer = new THREE.WebGLRenderer( { antialias: true } )
-  renderer.setPixelRatio( window.devicePixelRatio )
-  renderer.setSize( window.innerWidth, window.innerHeight )
-  document.body.appendChild( renderer.domElement )
-
+  mesh.add(new THREE.Mesh(new THREE.BoxGeometry( 20, 20, 20 ),material))
+  mesh.add(new THREE.Mesh(new THREE.BoxGeometry( 100, 100, 100 ),material))
 
   const world = createWorld()
 
@@ -37,17 +34,22 @@ function init() {
   Object.defineProperty(mesh.rotation, 'eid', { get: () => e })
   Object.defineProperty(mesh.rotation, 'store', { get: () => rotation })
   Object.defineProperty(mesh.rotation, '_x', {
-    get () { return this.store.x[e] },
-    set (n) { this.store.x[e] = n }
+    get () { return this.store.x[this.eid] },
+    set (n) { this.store.x[this.eid] = n }
   })
   Object.defineProperty(mesh.rotation, '_y', {
-    get () { return this.store.y[e] },
-    set (n) { this.store.y[e] = n }
+    get () { return this.store.y[this.eid] },
+    set (n) { this.store.y[this.eid] = n }
   })
   Object.defineProperty(mesh.rotation, '_z', {
-    get () { return this.store.z[e] },
-    set (n) { this.store.z[e] = n }
+    get () { return this.store.z[this.eid] },
+    set (n) { this.store.z[this.eid] = n }
   })
+
+  renderer = new THREE.WebGLRenderer( { antialias: true } )
+  renderer.setPixelRatio( window.devicePixelRatio )
+  renderer.setSize( window.innerWidth, window.innerHeight )
+  document.body.appendChild( renderer.domElement )
 
   scene.add( mesh )
 
