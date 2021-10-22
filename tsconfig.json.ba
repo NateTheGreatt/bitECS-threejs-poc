@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "amd",
+    "moduleResolution": "node",
+    "lib": ["es2016", "esnext", "dom"],
+    "outDir": "build",
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "outFile": "build/bundle.js"
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["build"]
+}
