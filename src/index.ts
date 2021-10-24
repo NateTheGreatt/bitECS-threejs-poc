@@ -1,8 +1,8 @@
 import { addComponent } from "bitecs"
 import * as THREE from "three"
 import { TransformComponent } from "./components"
-import { createObject3DEntity } from "./function/createObject3DEntity"
-import { createWorld } from "./function/createWorld"
+import { createObject3DEntity } from "./factory/createObject3DEntity"
+import { createWorld } from "./factory/createWorld"
 import { pipeline } from "./pipeline"
 
 const world = createWorld()
